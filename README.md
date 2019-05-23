@@ -1,8 +1,10 @@
 
 ### Build
 
+```
 git submodule update --init
 ./build.sh
+```
 
 ### ImSequencer
 A WIP little sequencer used to edit frame start/end for different events in a timeline.
