@@ -1,3 +1,9 @@
+
+### Build
+
+git submodule update --init
+./build.sh
+
 ### ImSequencer
 A WIP little sequencer used to edit frame start/end for different events in a timeline.
 ![Image of Rotation](http://i.imgur.com/BeyNwCn.png)
@@ -18,30 +24,6 @@ There is now a sample for Win32/OpenGL ! With a binary in bin directory.
 
 ### API doc
 
-Call BeginFrame right after ImGui_XXXX_NewFrame();
-
-```C++
-void BeginFrame();
-```
-
-return true if mouse cursor is over any gizmo control (axis, plan or screen component)
-
-```C++
-bool IsOver();**
-```
-
-return true if mouse IsOver or if the gizmo is in moving state
-
-```C++
-bool IsUsing();**
-```
-
-enable/disable the gizmo. Stay in the state until next call to Enable. gizmo is rendered with gray half transparent color when disabled
-
-```C++
-void Enable(bool enable);**
-```
-
 helper functions for manualy editing translation/rotation/scale with an input float
 translation, rotation and scale float points to 3 floats each
 Angles are in degrees (more suitable for human editing)
@@ -57,7 +39,7 @@ example:
 ```
 
 These functions have some numerical stability issues for now. Use with caution.
-	
+
 ```C++
 void DecomposeMatrixToComponents(const float *matrix, float *translation, float *rotation, float *scale);
 void RecomposeMatrixFromComponents(const float *translation, const float *rotation, const float *scale, float *matrix);**
@@ -70,7 +52,7 @@ void DrawCube(const float *view, const float *projection, float *matrix);**
 ```
 
 Call it when you want a gizmo
-Needs view and projection matrices. 
+Needs view and projection matrices.
 Matrix parameter is the source matrix (where will be gizmo be drawn) and might be transformed by the function. Return deltaMatrix is optional. snap points to a float[3] for translation and to a single float for scale or rotation. Snap angle is in Euler Degrees.
 
 ```C++
