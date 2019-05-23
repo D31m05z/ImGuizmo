@@ -5,18 +5,18 @@ project(imguizmo)
 find_package(imgui REQUIRED)
 
 set(imguizmo_public_hdrs
+    ${CMAKE_CURRENT_LIST_DIR}/ImCurveEdit.h
+    ${CMAKE_CURRENT_LIST_DIR}/ImGradient.h
+    ${CMAKE_CURRENT_LIST_DIR}/ImGuizmo.h
+    ${CMAKE_CURRENT_LIST_DIR}/ImSequencer.h
 )
 
 add_library(${PROJECT_NAME}
     ${imguizmo_public_hdrs}
     ${CMAKE_CURRENT_LIST_DIR}/ImCurveEdit.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/ImCurveEdit.h
     ${CMAKE_CURRENT_LIST_DIR}/ImGradient.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/ImGradient.h
     ${CMAKE_CURRENT_LIST_DIR}/ImGuizmo.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/ImGuizmo.h
     ${CMAKE_CURRENT_LIST_DIR}/ImSequencer.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/ImSequencer.h
 )
 
 add_library(::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
